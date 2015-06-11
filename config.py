@@ -8,4 +8,4 @@ database_location = "/Users/alex/PycharmProjects/BackupManager/files.sqlite"
 app_username = "user"
 app_password = "password"
 app_port = 8081
-max_backup_size = 15000
+max_backup_size = 15000 #capacity of backup directory in bytes
