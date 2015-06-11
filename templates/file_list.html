@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        body
+        {
+            font-family: Roboto, sans-serif;
+            font-size: 13px;
+        }
+        .center
+        {
+            margin-left:auto;
+            margin-right:auto;
+            text-align: center;
+        }
+        #MBDisplay
+        {
+            align: right;
+        }
+        .user_message
+        {
+            display: inline-block;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+{% if message != "" %}
+<div class="user_message center", style="background-color:#{{ message_color }};"><span class="center">{{ message }}</span></div>
+{% endif %}
+
+<h3 class="center">List of Archives:</h3>
+<table class="pure-table center">
+    <thead>
+    <tr>
+        <td>File Name</td>
+        <td>File Size (Bytes)</td>
+        <td>Actions</td>
+    </tr>
+
+    <tr>
+        <td>Total Files: {{ total_files }}</td>
+        <td>Total Size: {{ total_size / 1000000 }}MB</td>
+        <td></td>
+    </tr>
+    </thead>
+<tbody>
+    {% for file in files %}
+    <tr>
+        <td>{{file.display_name}}</td>
+        <td>{{file.file_size/1000000}}MB</td>
+        <td><a href="/delete?file={{ file.file_name }}">Delete</a> | <a href="/download/?file={{ file.file_name }}">Download</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</body>
+</html>
