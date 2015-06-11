@@ -1,0 +1,3 @@
+# BackupManager
+
+This project provides an easy way to manage auto-backups to a directory via a simple web interface. Edit the values in **config.py** in order to to define what directory you wish to backup, and where to back it up to. Run **server.py** in order to enable the web interface, and **make_archive.py** in order to run the backup. Backups are auto-deleted in chronological order after the total size of all archives exceeds the maximum size specified in the config file. This allows for the archives to be backed up to a service such as Dropbox without worry that the archives will exceed the maximum storage capacity of the account and fail to be uploaded.
